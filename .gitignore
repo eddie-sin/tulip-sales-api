@@ -5,7 +5,7 @@ node_modules/
 *.log
 
 # dotenv environment variables
-.env
+config.env
 
 # npm package lock files (optional but recommended)
 package-lock.json
