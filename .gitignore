@@ -1,0 +1,23 @@
+# Node.js dependencies
+node_modules/
+
+# Log files
+*.log
+
+# dotenv environment variables
+.env
+
+# npm package lock files (optional but recommended)
+package-lock.json
+
+# OS generated files (e.g., macOS Finder or Windows Thumbs.db)
+.DS_Store
+Thumbs.db
+
+# Build or distribution directories (optional, depending on your project)
+build/
+dist/
+
+# IDE-specific files (optional, depending on your IDE)
+.vscode/
+.idea/
