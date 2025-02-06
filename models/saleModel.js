@@ -9,7 +9,7 @@ const SaleSchema = new mongoose.Schema({
   seller_gender: { type: String, enum: ["male", "female"], required: true },
   place: {
     type: String,
-    enum: ["Junction Square", "216", "209"],
+    enum: ["JS", "216", "209"],
     required: true,
   },
   sale_attempt_time: { type: Date, default: Date.now },
@@ -22,7 +22,12 @@ const SaleSchema = new mongoose.Schema({
 
 // Automatically calculate profit before saving
 SaleSchema.pre("save", function (next) {
-  this.profit = this.sold_price - 2000;
+  if (this.sold_price != 0) {
+    this.profit = this.sold_price - 2000;
+  } else {
+    this.profit = 0;
+  }
+
   next();
 });
 
