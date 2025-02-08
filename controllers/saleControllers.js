@@ -1,4 +1,5 @@
 const Sale = require("../models/saleModel");
+const APIFeatures = require("../utils/apiFeatures");
 
 // Create a Sale
 exports.createSale = async (req, res) => {
@@ -20,7 +21,12 @@ exports.createSale = async (req, res) => {
 // Get All Sales
 exports.getAllSales = async (req, res) => {
   try {
-    const sales = await Sale.find();
+    const features = new APIFeatures(Sale.find(), req.query)
+      .filter()
+      .limitFields()
+      .sort()
+      .paginate();
+    const sales = await features.query;
     res.status(200).json({
       status: "success",
       results: sales.length,

@@ -4,7 +4,7 @@ const SaleSchema = new mongoose.Schema({
   seller_name: {
     type: String,
     required: true,
-    enum: ["Eddie", "Kaung Sitt", "Shun Lak"],
+    enum: ["Eddie", "Kaung Sit", "Shun Lak"],
   },
   seller_gender: { type: String, enum: ["male", "female"], required: true },
   place: {
@@ -18,6 +18,7 @@ const SaleSchema = new mongoose.Schema({
   sold_price: { type: Number, default: 0 },
   profit: { type: Number }, // Automatically calculated
   customer_batch: { type: String, required: true },
+  customer_gender: { type: String, enum: ["male", "female"], required: true },
 });
 
 // Automatically calculate profit before saving
